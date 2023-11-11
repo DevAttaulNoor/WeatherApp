@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Application</title>
+</head>
+
+<body>
+    <div class="containerWrap">
+        <!-- Weather App Main Body -->
+        <div class="weatherMain">
+            <div class="weatherMain_Top">
+                <div class="weatherMain_TopLeft">
+                    <img id="weatherIcon" src="../Icons/clouds.png">
+                    <p id="tempText">Cloudy</p>
+                </div>
+
+                <div class="weatherMain_TopRight">
+                    <p id="temperature">0°C</p>
+                </div>
+            </div>
+
+            <div class="weatherMain_Middle">
+                <p id="cityName">City</p>
+                <p id="countryName">Country</p>
+            </div>
+
+            <div class="weatherMain_Bottom">
+                <marquee behavior="scroll" direction="left">Welcome to Weather Hub here you will find latest
+                    weather details of cities all over the world.</marquee>
+            </div>
+        </div>
+
+        <!-- Weather App Sidebar -->
+        <div class="weatherSidebar">
+            <div class="weatherSidebar_Top">
+                <div class="inputContainer">
+                    <input type="text" id="inputCity" spellcheck="false" placeholder="City name">
+                    <button id="searchBtn"><img src="../Icons/search.png"></button>
+                </div>
+                <p id="errorMsg">Invalid City Name!</p>
+            </div>
+            <hr>
+
+            <div class="weatherSidebar_Middle">
+                <h2>Weather Details</h2>
+                <div class="weatherSidebar_MiddleOptions">
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Description</h5>
+                        <p id="weatherDesp">Cloudy</p>
+                    </div>
+                    <!-- <div class="weatherSidebar_MiddleOption">
+                        <h5>Temperature</h5>
+                        <p id="temperature">0</p>
+                    </div> -->
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Feels Like</h5>
+                        <p id="feellike">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Humidity</h5>
+                        <p id="humidity">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Visibility</h5>
+                        <p id="visibility">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Pressure</h5>
+                        <p id="pressure">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Winds</h5>
+                        <p id="winds">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Latitude</h5>
+                        <p id="latitude">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Longitude</h5>
+                        <p id="longitude">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Sunrise</h5>
+                        <p id="sunrise">0</p>
+                    </div>
+                    <div class="weatherSidebar_MiddleOption">
+                        <h5>Sunset</h5>
+                        <p id="sunset">0</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="weatherSidebar_Bottom">
+                <h2>Capitals</h2>
+                <div class="weatherSidebar_BottomOptions">
+                    <button id="islBtn">Islamabad</button>
+                    <button id="rmeBtn">Rome</button>
+                    <button id="tkyBtn">Tokyo</button>
+                    <button id="ldnBtn">London</button>
+                    <button id="parBtn">Paris</button>
+                    <button id="belBtn">Berlin</button>
+                    <button id="mosBtn">Moscow</button>
+                    <button id="bjBtn">Beijing</button>
+                    <button id="istBtn">Istanbul</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

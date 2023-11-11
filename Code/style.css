@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+/** Conatiner Wrapper */
+.containerWrap {
+    background-image: url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNsb3VkeSUyMHNreXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+/** Weather Main Section */
+.weatherMain {
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Weather Main Top Section */
+.weatherMain_Top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px 0;
+}
+
+.weatherMain_TopLeft {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weatherMain_TopLeft img {
+    width: 120px;
+}
+
+.weatherMain_TopLeft p {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.weatherMain_TopRight {
+    display: flex;
+    align-items: flex-end;
+}
+
+.weatherMain_TopRight p {
+    font-size: 36px;
+}
+
+.weatherMain_TopRight {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Weather Main Middle Section */
+.weatherMain_Middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.weatherMain_Middle p {
+    font-size: 32px;
+}
+
+/* Weather Main Bottom Section */
+.weatherMain_Bottom marquee {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/** Weather Sidebar Section */
+.weatherSidebar {
+    position: sticky;
+    top: 0px;
+    min-width: 320px;
+    padding: 5px;
+    backdrop-filter: blur(20px);
+    background-color: transparent;
+    box-shadow: 1px 1px 10px 1px rgb(0, 0, 0, 0.25);
+    overflow-y: auto;
+}
+
+/* Weather Leftbar Top Section */
+.weatherSidebar_Top {
+    padding: 0 15px;
+}
+
+.weatherSidebar_Top .inputContainer {
+    display: flex;
+    margin: 15px 0;
+    justify-content: center;
+}
+
+.inputContainer #inputCity {
+    width: 100%;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    font-family: 'Poppins';
+    padding: 4px 8px;
+    font-size: 18px;
+    outline: none;
+}
+
+.inputContainer #searchBtn {
+    width: 15%;
+    border: 1px solid white;
+    background-color: #d66c06;
+    padding-top: 4px;
+}
+
+.inputContainer #searchBtn img {
+    width: 13px;
+    height: 13px;
+}
+
+.weatherSidebar_Top #errorMsg {
+    display: none;
+    font-size: 12px;
+    color: #d66c06;
+    margin-bottom: 15px;
+}
+
+/* Weather Leftbar Middle Section */
+.weatherSidebar_Middle {
+    padding: 15px;
+}
+
+.weatherSidebar_Middle h2 {
+    margin-bottom: 10px;
+}
+
+.weatherSidebar_MiddleOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.weatherSidebar_MiddleOption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.weatherSidebar_MiddleOption:last-child {
+    margin-bottom: 0px;
+}
+
+.weatherSidebar_MiddleOption h5 {
+    font-size: 16px;
+}
+
+.weatherSidebar_MiddleOption p {
+    font-size: 14px;
+}
+
+/* Weather Leftbar Bottom Section */
+.weatherSidebar_Bottom {
+    padding: 15px;
+}
+
+.weatherSidebar_Bottom h2 {
+    margin-bottom: 10px;
+}
+
+.weatherSidebar_BottomOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.weatherSidebar_BottomOptions button {
+    padding: 6px;
+    outline: none;
+    border: none;
+    margin-bottom: 5px;
+    background-color: #d66c06;
+    transition: 0.25s ease;
+}
+
+.weatherSidebar_BottomOptions button:hover {
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.weatherSidebar_BottomOptions button:last-child {
+    margin-bottom: 0px;
+}
+
+/** Media Queries Section */
+@media screen and (max-width: 950px) {
+
+    /** Weather Sidebar Section */
+    .weatherSidebar {
+        min-width: 250px;
+    }
+
+    .inputContainer #inputCity {
+        padding: 4px 12px;
+        font-size: 22px;
+    }
+
+    .inputContainer #searchBtn {
+        width: 25%;
+    }
+
+    .weatherSidebar_Middle h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .weatherSidebar_MiddleOption {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .weatherSidebar_MiddleOption h5 {
+        font-size: 24px;
+    }
+
+    .weatherSidebar_MiddleOption p {
+        font-size: 18px;
+    }
+
+    .weatherSidebar_Bottom h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .weatherSidebar_BottomOptions button {
+        font-size: 18px;
+        padding: 8px;
+        outline: none;
+        border: none;
+        margin-bottom: 8px;
+        background-color: #d66c06;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .containerWrap {
+        background-image: url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNsb3VkeSUyMHNreXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    /** Weather Main Section */
+    .weatherMain {
+        position: sticky;
+        top: 0px;
+        width: 100%;
+        height: 60rem;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .weatherMain_Top {
+        padding: 10px 20px 0;
+    }
+
+    .weatherMain_TopLeft img {
+        width: 80px;
+    }
+
+    .weatherMain_TopLeft p {
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .weatherMain_TopRight p {
+        font-size: 26px;
+    }
+
+    .weatherMain_Middle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+
+    .weatherMain_Middle p {
+        font-size: 26px;
+    }
+
+    /** Weather Sidebar Section */
+    .weatherSidebar_Middle {
+        padding: 10px;
+    }
+
+    .weatherSidebar_Middle h2 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .weatherSidebar_MiddleOption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-bottom: 8px;
+    }
+
+    .weatherSidebar_MiddleOption h5 {
+        font-size: 18px;
+    }
+    
+    .weatherSidebar_MiddleOption p {
+        font-size: 14px;
+    }
+
+    .weatherSidebar_Bottom h2 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+}
