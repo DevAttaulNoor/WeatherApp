@@ -4,7 +4,6 @@ const ApiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=`
 const searchBox = document.querySelector("#inputCity")
 const searchBtn = document.querySelector("#searchBtn")
 const weatherIcon = document.querySelector("#weatherIcon")
-
 const freq_islamabad = document.querySelector("#islBtn")
 const freq_rome = document.querySelector("#rmeBtn")
 const freq_tokyo = document.querySelector("#tkyBtn")
@@ -34,7 +33,7 @@ async function checkWeather(city) {
 
     else {
         let data = await response.json()
-        console.log(data)
+        // console.log(data)
 
         document.querySelector("#weatherDesp").innerHTML = data.weather[0].description
         document.querySelector("#tempText").innerHTML = data.weather[0].main

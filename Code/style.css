@@ -208,7 +208,7 @@ body {
     margin-bottom: 0px;
 }
 
-/** Media Queries Section */
+/** Media Queries Section for Tablets*/
 @media screen and (max-width: 950px) {
 
     /** Weather Sidebar Section */
@@ -262,6 +262,7 @@ body {
     }
 }
 
+/** Media Queries Section for Mobiles*/
 @media screen and (max-width: 680px) {
     .containerWrap {
         background-image: url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNsb3VkeSUyMHNreXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80);
