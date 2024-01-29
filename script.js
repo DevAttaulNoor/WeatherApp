@@ -51,32 +51,32 @@ async function checkWeather(city) {
         document.querySelector("#sunset").innerHTML = secondsToTime(data.sys.sunset)
 
         if (data.weather[0].main == "Clouds") {
-            weatherIcon.src = "../Icons/clouds.png"
+            weatherIcon.src = "./Icons/clouds.png"
             document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1529832393073-e362750f78b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGNsb3Vkc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60)"
         }
 
         else if (data.weather[0].main == "Clear") {
-            weatherIcon.src = "../Icons/clear.png"
+            weatherIcon.src = "./Icons/clear.png"
             document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80)"
         }
 
         else if (data.weather[0].main == "Drizzle") {
-            weatherIcon.src = "../Icons/drizzle.png"
+            weatherIcon.src = "./Icons/drizzle.png"
             document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1433863448220-78aaa064ff47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJhaW5pbmclMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60)"
         }
 
         else if (data.weather[0].main == "Rain") {
-            weatherIcon.src = "../Icons/rain.png"
+            weatherIcon.src = "./Icons/rain.png"
             document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1678916014988-6eb046ddf9ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHJhaW5pbmclMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60)"
         }
 
         else if (data.weather[0].main == "Haze") {
-            weatherIcon.src = "../Icons/mist.png"
+            weatherIcon.src = "./Icons/mist.png"
             document.querySelector(".containerWrap").style.backgroundImage = "url(https://c0.wallpaperflare.com/preview/207/955/780/trees-covered-by-mist.jpg)"
         }
 
         else if (data.weather[0].main == "Snow") {
-            weatherIcon.src = "../Icons/snow.png"
+            weatherIcon.src = "./Icons/snow.png"
             document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1612864197149-686b29cb4bea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fFNub3dpbmclMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60)"
         }
 
