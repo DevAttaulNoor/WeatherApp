@@ -1,6 +1,8 @@
 # Introduction
 This Weather Website is a user-friendly platform that leverages the OpenWeatherMap API to provide real-time weather information for various cities worldwide. Users can easily access current weather conditions, and detailed information for any desired location. It has been developed using HTML, CSS, and JavaScript, emphasizing responsiveness and simplicity.
 
+Link to use the app: https://devattaulnoor.github.io/Weather-Website/
+
 # Getting Started
 To run the website locally on your machine, follow these steps.
 - Clone the repository or download the source code.
