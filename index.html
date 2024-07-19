@@ -14,40 +14,17 @@
 
 <body>
     <div class="containerWrap">
-        <!-- Weather App Main Body -->
-        <div class="weatherMain">
-            <div class="weatherMain_Top">
-                <div class="weatherMain_TopLeft">
-                    <img id="weatherIcon" src="./Icons/clouds.png">
-                    <p id="tempText">Cloudy</p>
-                </div>
-
-                <div class="weatherMain_TopRight">
-                    <p id="temperature">0°C</p>
-                </div>
-            </div>
-
-            <div class="weatherMain_Middle">
-                <p id="cityName">City</p>
-                <p id="countryName">Country</p>
-            </div>
-
-            <div class="weatherMain_Bottom">
-                <marquee behavior="scroll" direction="left">Welcome to Weather Hub here you will find latest
-                    weather details of cities all over the world.</marquee>
-            </div>
-        </div>
-
         <!-- Weather App Sidebar -->
         <div class="weatherSidebar">
             <div class="weatherSidebar_Top">
                 <div class="inputContainer">
                     <input type="text" id="inputCity" spellcheck="false" placeholder="City name">
-                    <button id="searchBtn"><img src="./Icons/search.png"></button>
+                    <div id="searchBtn">
+                        <img src="./Icons/search.png" alt="searchIcon">
+                    </div>
                 </div>
                 <p id="errorMsg">Invalid City Name!</p>
             </div>
-            <hr>
 
             <div class="weatherSidebar_Middle">
                 <h2>Weather Details</h2>
@@ -56,10 +33,6 @@
                         <h5>Description</h5>
                         <p id="weatherDesp">Cloudy</p>
                     </div>
-                    <!-- <div class="weatherSidebar_MiddleOption">
-                        <h5>Temperature</h5>
-                        <p id="temperature">0</p>
-                    </div> -->
                     <div class="weatherSidebar_MiddleOption">
                         <h5>Feels Like</h5>
                         <p id="feellike">0</p>
@@ -98,13 +71,11 @@
                     </div>
                 </div>
             </div>
-            <hr>
 
             <div class="weatherSidebar_Bottom">
                 <h2>Capitals</h2>
                 <div class="weatherSidebar_BottomOptions">
                     <button id="islBtn">Islamabad</button>
-                    <button id="rmeBtn">Rome</button>
                     <button id="tkyBtn">Tokyo</button>
                     <button id="ldnBtn">London</button>
                     <button id="parBtn">Paris</button>
@@ -113,6 +84,30 @@
                     <button id="bjBtn">Beijing</button>
                     <button id="istBtn">Istanbul</button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Weather App Main Body -->
+        <div class="weatherMain">
+            <div class="weatherMain_Top">
+                <div class="weatherMain_TopLeft">
+                    <img id="weatherIcon" src="./Icons/clouds.png">
+                    <p id="tempText">Cloudy</p>
+                </div>
+
+                <div class="weatherMain_TopRight">
+                    <p id="temperature">0°C</p>
+                </div>
+            </div>
+
+            <div class="weatherMain_Middle">
+                <p id="cityName">City</p>
+                <p id="countryName">Country</p>
+            </div>
+
+            <div class="weatherMain_Bottom">
+                <marquee behavior="scroll" direction="left">Welcome to Weather Hub here you will find latest
+                    weather details of cities all over the world.</marquee>
             </div>
         </div>
     </div>

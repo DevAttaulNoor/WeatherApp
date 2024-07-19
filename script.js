@@ -5,7 +5,6 @@ const searchBox = document.querySelector("#inputCity")
 const searchBtn = document.querySelector("#searchBtn")
 const weatherIcon = document.querySelector("#weatherIcon")
 const freq_islamabad = document.querySelector("#islBtn")
-const freq_rome = document.querySelector("#rmeBtn")
 const freq_tokyo = document.querySelector("#tkyBtn")
 const freq_london = document.querySelector("#ldnBtn")
 const freq_paris = document.querySelector("#parBtn")
@@ -28,7 +27,7 @@ async function checkWeather(city) {
 
     if (response.status == 404 || response.status == 400) {
         document.querySelector("#errorMsg").style.display = "block"
-        document.querySelector(".inputContainer").style.margin = "15px 0 0"
+        document.querySelector(".inputContainer").style.margin = "10px 0 5px"
     }
 
     else {
@@ -90,10 +89,6 @@ searchBtn.addEventListener("click", () => {
 })
 freq_islamabad.addEventListener("click", () => {
     checkWeather("islamabad")
-    searchBox.value = ""
-})
-freq_rome.addEventListener("click", () => {
-    checkWeather("rome")
     searchBox.value = ""
 })
 freq_tokyo.addEventListener("click", () => {
