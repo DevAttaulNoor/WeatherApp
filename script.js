@@ -13,7 +13,7 @@ const freq_beijing = document.querySelector("#bjBtn")
 const freq_istanbul = document.querySelector("#istBtn")
 const freq_berlin = document.querySelector("#belBtn")
 
-function secondsToTime(time){
+function secondsToTime(time) {
     let Time = time;
     var date = new Date(Time * 1000);
     var hours = date.getHours();
