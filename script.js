@@ -1,121 +1,146 @@
-const Apikey = "bf252502fc75731d20912f93bc35c60e"
-const ApiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=`
+const API_KEY = "bf252502fc75731d20912f93bc35c60e";
+const API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const API_URL_COORDS = "https://api.openweathermap.org/data/2.5/weather?units=metric&";
 
-const searchBox = document.querySelector("#inputCity")
-const searchBtn = document.querySelector("#searchBtn")
-const weatherIcon = document.querySelector("#weatherIcon")
-const freq_islamabad = document.querySelector("#islBtn")
-const freq_tokyo = document.querySelector("#tkyBtn")
-const freq_london = document.querySelector("#ldnBtn")
-const freq_paris = document.querySelector("#parBtn")
-const freq_moscow = document.querySelector("#mosBtn")
-const freq_beijing = document.querySelector("#bjBtn")
-const freq_istanbul = document.querySelector("#istBtn")
-const freq_berlin = document.querySelector("#belBtn")
+const searchBox = document.querySelector("#inputCity");
+const searchBtn = document.querySelector("#searchBtn");
+const weatherIcon = document.querySelector("#weatherIcon");
 
-function secondsToTime(time) {
-    let Time = time;
-    var date = new Date(Time * 1000);
-    var hours = date.getHours();
-    var minutes = "0" + date.getMinutes();
-    var formattedTime = hours + ':' + minutes.substr(-2);
-    return formattedTime;
-}
+const cityButtons = [
+    { id: "islBtn", city: "islamabad" },
+    { id: "tkyBtn", city: "tokyo" },
+    { id: "ldnBtn", city: "london" },
+    { id: "parBtn", city: "paris" },
+    { id: "mosBtn", city: "moscow" },
+    { id: "bjBtn", city: "beijing" },
+    { id: "istBtn", city: "istanbul" },
+    { id: "belBtn", city: "berlin" },
+];
 
-async function checkWeather(city) {
-    const response = await fetch(ApiUrl + city + `&appid=${Apikey}`)
+const weatherBackgrounds = {
+    Clouds: {
+        icon: "./Images/clouds.png",
+        bg: "url(https://images.unsplash.com/photo-1529832393073-e362750f78b3?auto=format&fit=crop&w=800&q=60)"
+    },
+    Clear: {
+        icon: "./Images/clear.png",
+        bg: "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?auto=format&fit=crop&w=869&q=80)"
+    },
+    Drizzle: {
+        icon: "./Images/drizzle.png",
+        bg: "url(https://images.unsplash.com/photo-1433863448220-78aaa064ff47?auto=format&fit=crop&w=800&q=60)"
+    },
+    Rain: {
+        icon: "./Images/rain.png",
+        bg: "url(https://images.unsplash.com/photo-1678916014988-6eb046ddf9ea?auto=format&fit=crop&w=800&q=60)"
+    },
+    Haze: {
+        icon: "./Images/mist.png",
+        bg: "url(https://c0.wallpaperflare.com/preview/207/955/780/trees-covered-by-mist.jpg)"
+    },
+    Snow: {
+        icon: "./Images/snow.png",
+        bg: "url(https://images.unsplash.com/photo-1612864197149-686b29cb4bea?auto=format&fit=crop&w=800&q=60)"
+    }
+};
 
-    if (response.status == 404 || response.status == 400) {
-        document.querySelector("#errorMsg").style.display = "block"
-        document.querySelector(".inputContainer").style.margin = "10px 0 5px"
+// Convert seconds to HH:mm format
+const secondsToTime = (time) => {
+    const date = new Date(time * 1000);
+    return `${date.getHours()}:${String(date.getMinutes()).padStart(2, "0")}`;
+};
+
+// Update UI with fetched data
+const updateUI = (data) => {
+    document.querySelector("#weatherDesp").textContent = data.weather[0].description;
+    document.querySelector("#tempText").textContent = data.weather[0].main;
+    document.querySelector("#cityName").textContent = data.name;
+    document.querySelector("#countryName").textContent = data.sys.country;
+    document.querySelector("#temperature").textContent = `${Math.round(data.main.temp)}°C`;
+    document.querySelector("#feellike").textContent = `${Math.round(data.main.feels_like)}°C`;
+    document.querySelector("#humidity").textContent = `${data.main.humidity}%`;
+    document.querySelector("#pressure").textContent = `${data.main.pressure} Ns`;
+    document.querySelector("#winds").textContent = `${data.wind.speed} Km/hr`;
+    document.querySelector("#visibility").textContent = `${data.visibility / 1000} km`;
+    document.querySelector("#latitude").textContent = data.coord.lat;
+    document.querySelector("#longitude").textContent = data.coord.lon;
+    document.querySelector("#sunrise").textContent = secondsToTime(data.sys.sunrise);
+    document.querySelector("#sunset").textContent = secondsToTime(data.sys.sunset);
+
+    // Update icon & background
+    const condition = data.weather[0].main;
+    if (weatherBackgrounds[condition]) {
+        weatherIcon.src = weatherBackgrounds[condition].icon;
+        document.querySelector(".containerWrap").style.backgroundImage = weatherBackgrounds[condition].bg;
     }
 
-    else {
-        let data = await response.json()
-        // console.log(data)
+    document.querySelector("#errorMsg").style.display = "none";
+    document.querySelector(".inputContainer").style.margin = "8px 0";
+}
 
-        document.querySelector("#weatherDesp").innerHTML = data.weather[0].description
-        document.querySelector("#tempText").innerHTML = data.weather[0].main
-        document.querySelector("#cityName").innerHTML = data.name
-        document.querySelector("#countryName").innerHTML = data.sys.country
-        document.querySelector("#temperature").innerHTML = Math.round(data.main.temp) + "°C"
-        document.querySelector("#feellike").innerHTML = Math.round(data.main.feels_like) + "°C"
-        document.querySelector("#humidity").innerHTML = data.main.humidity + "%"
-        document.querySelector("#pressure").innerHTML = data.main.pressure + "Ns"
-        document.querySelector("#winds").innerHTML = data.wind.speed + " Km/hr"
-        document.querySelector("#visibility").innerHTML = data.visibility / 1000 + "km"
-        document.querySelector("#latitude").innerHTML = data.coord.lat
-        document.querySelector("#longitude").innerHTML = data.coord.lon
-        document.querySelector("#sunrise").innerHTML = secondsToTime(data.sys.sunrise)
-        document.querySelector("#sunset").innerHTML = secondsToTime(data.sys.sunset)
+// Show error message
+const showError = () => {
+    document.querySelector("#errorMsg").style.display = "block";
+    document.querySelector(".inputContainer").style.margin = "6px 0 2px";
+}
 
-        if (data.weather[0].main == "Clouds") {
-            weatherIcon.src = "./Icons/clouds.png"
-            document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1529832393073-e362750f78b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGNsb3Vkc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60)"
-        }
+// Fetch weather data
+const checkWeather = async (city) => {
+    try {
+        const response = await fetch(`${API_URL}${city}&appid=${API_KEY}`);
+        if (!response.ok) return showError();
 
-        else if (data.weather[0].main == "Clear") {
-            weatherIcon.src = "./Icons/clear.png"
-            document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80)"
-        }
-
-        else if (data.weather[0].main == "Drizzle") {
-            weatherIcon.src = "./Icons/drizzle.png"
-            document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1433863448220-78aaa064ff47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJhaW5pbmclMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60)"
-        }
-
-        else if (data.weather[0].main == "Rain") {
-            weatherIcon.src = "./Icons/rain.png"
-            document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1678916014988-6eb046ddf9ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHJhaW5pbmclMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60)"
-        }
-
-        else if (data.weather[0].main == "Haze") {
-            weatherIcon.src = "./Icons/mist.png"
-            document.querySelector(".containerWrap").style.backgroundImage = "url(https://c0.wallpaperflare.com/preview/207/955/780/trees-covered-by-mist.jpg)"
-        }
-
-        else if (data.weather[0].main == "Snow") {
-            weatherIcon.src = "./Icons/snow.png"
-            document.querySelector(".containerWrap").style.backgroundImage = "url(https://images.unsplash.com/photo-1612864197149-686b29cb4bea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fFNub3dpbmclMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60)"
-        }
-
-        document.querySelector("#errorMsg").style.display = "none"
-        document.querySelector(".inputContainer").style.margin = "15px 0"
+        const data = await response.json();
+        updateUI(data);
+    } catch (error) {
+        console.error("Error fetching weather:", error);
+        showError();
     }
 }
 
+// Get city name from coordinates
+const getCityName = async (lat, lon) => {
+    const response = await fetch(
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`
+    );
+    const data = await response.json();
+    return data[0]?.name || "Unknown City";
+}
+
+// On load - get location
+window.onload = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            async (pos) => {
+                const lat = pos.coords.latitude;
+                const lon = pos.coords.longitude;
+                const city = await getCityName(lat, lon);
+                checkWeather(city);
+            },
+            () => checkWeather("Islamabad")
+        );
+    } else {
+        checkWeather("Islamabad");
+    }
+};
+
+// Search button
 searchBtn.addEventListener("click", () => {
-    checkWeather(searchBox.value)
-})
-freq_islamabad.addEventListener("click", () => {
-    checkWeather("islamabad")
-    searchBox.value = ""
-})
-freq_tokyo.addEventListener("click", () => {
-    checkWeather("tokyo")
-    searchBox.value = ""
-})
-freq_london.addEventListener("click", () => {
-    checkWeather("london")
-    searchBox.value = ""
-})
-freq_paris.addEventListener("click", () => {
-    checkWeather("paris")
-    searchBox.value = ""
-})
-freq_moscow.addEventListener("click", () => {
-    checkWeather("moscow")
-    searchBox.value = ""
-})
-freq_beijing.addEventListener("click", () => {
-    checkWeather("beijing")
-    searchBox.value = ""
-})
-freq_istanbul.addEventListener("click", () => {
-    checkWeather("istanbul")
-    searchBox.value = ""
-})
-freq_berlin.addEventListener("click", () => {
-    checkWeather("berlin")
-    searchBox.value = ""
-})
+    if (searchBox.value.trim()) {
+        checkWeather(searchBox.value.trim());
+        searchBox.value = "";
+    }
+});
+
+// Enter key support
+searchBox.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") searchBtn.click();
+});
+
+// City quick buttons
+cityButtons.forEach(({ id, city }) => {
+    document.querySelector(`#${id}`).addEventListener("click", () => {
+        checkWeather(city);
+        searchBox.value = "";
+    });
+});

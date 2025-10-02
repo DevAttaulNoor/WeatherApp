@@ -1,324 +1,316 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 html,
 body {
-    height: 100vh;
+  height: 100vh;
 }
 
 /** Container Wrapper */
 .containerWrap {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    background-image: url('https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNsb3VkeSUyMHNreXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80');
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-image: url("https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNsb3VkeSUyMHNreXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 
 /** WeatherSidebar Section */
 .weatherSidebar {
-    min-width: 320px;
-    padding: 10px;
-    backdrop-filter: blur(20px);
-    box-shadow: 1px 1px 10px 1px rgb(0, 0, 0, 0.25);
-    background-color: transparent;
-    overflow-y: auto;
+  min-width: 320px;
+  padding: 0px 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 1px 1px 10px 1px rgb(0, 0, 0, 0.25);
+  background-color: transparent;
+  overflow-y: auto;
 }
 
 /* WeatherSidebar Top Section */
 .weatherSidebar_Top {
-    width: 100%;
+  width: 100%;
 }
 
 .weatherSidebar_Top .inputContainer {
-    display: flex;
-    margin: 10px 0px 15px;
+  display: flex;
+  margin: 10px 0px;
 }
 
 .inputContainer #inputCity {
-    flex: 0.85;
-    font-size: 18px;
-    padding: 4px 8px;
-    border: 1px solid white;
-    outline: none;
-    color: white;
-    background-color: transparent;
+  flex: 0.85;
+  font-size: 18px;
+  padding: 4px 8px;
+  border: 1px solid white;
+  outline: none;
+  color: white;
+  background-color: transparent;
 }
 
 .inputContainer #searchBtn {
-    flex: 0.15;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid white;
-    cursor: pointer;
-    background-color: #d66c06;
+  flex: 0.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  cursor: pointer;
+  background-color: #d66c06;
 }
 
 .inputContainer #searchBtn img {
-    width: 13px;
-    height: 15px;
+  width: 13px;
+  height: 15px;
 }
 
 .weatherSidebar_Top #errorMsg {
-    display: none;
-    font-size: 12px;
-    color: #d66c06;
-    margin-bottom: 10px;
+  display: none;
+  font-size: 12px;
+  color: #d66c06;
+  margin-bottom: 10px;
 }
 
 /* WeatherSidebar Middle Section */
 .weatherSidebar_Middle {
-    padding: 10px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+  padding: 10px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 .weatherSidebar_Middle h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .weatherSidebar_MiddleOptions {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .weatherSidebar_MiddleOption {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 
 .weatherSidebar_MiddleOption:last-child {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .weatherSidebar_MiddleOption h5 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .weatherSidebar_MiddleOption p {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 /* WeatherSidebar Bottom Section */
 .weatherSidebar_Bottom {
-    padding: 10px;
+  padding: 10px;
 }
 
 .weatherSidebar_Bottom h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .weatherSidebar_BottomOptions {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .weatherSidebar_BottomOptions button {
-    font-size: 14px;
-    padding: 6px;
-    margin-bottom: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.25s ease;
-    background-color: #d66c06;
+  font-size: 14px;
+  padding: 6px;
+  margin-bottom: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+  background-color: #d66c06;
 }
 
 .weatherSidebar_BottomOptions button:hover {
-    letter-spacing: 2px;
+  letter-spacing: 2px;
 }
 
 .weatherSidebar_BottomOptions button:last-child {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 /** WeatherMain Section */
 .weatherMain {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.weatherMain marquee {
+  font-weight: 600;
 }
 
 /* WeatherMain Top Section */
 .weatherMain_Top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px 0;
 }
 
 .weatherMain_TopLeft {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .weatherMain_TopLeft img {
-    width: 120px;
+  width: 120px;
 }
 
 .weatherMain_TopLeft p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
-.weatherMain_TopRight p {
-    font-size: 36px;
+.weatherMain_TopRight {
+  font-size: 36px;
 }
 
 /* WeatherMain Middle Section */
 .weatherMain_Middle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .weatherMain_Middle p {
-    font-size: 32px;
-}
-
-/* WeatherMain Bottom Section */
-.weatherMain_Bottom marquee {
-    font-size: 16px;
-    font-weight: 600;
+  font-size: 32px;
 }
 
 /** Media Queries Section */
 @media screen and (max-width: 950px) {
+  /** WeatherSidebar Section */
+  .weatherSidebar {
+    min-width: 240px;
+    padding: 0px 6px;
+  }
 
-    /** WeatherSidebar Section */
-    .weatherSidebar {
-        min-width: 240px;
-        padding: 6px;
-    }
+  /* WeatherSidebar Top Section */
+  .inputContainer #inputCity {
+    font-size: 14px;
+  }
 
-    /* WeatherSidebar Top Section */
-    .inputContainer #inputCity {
-        font-size: 14px;
-    }
+  .weatherSidebar_Top #errorMsg {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
 
-    .weatherSidebar_Top #errorMsg {
-        font-size: 10px;
-        margin-bottom: 5px;
-    }
+  /* WeatherSidebar Middle Section */
+  .weatherSidebar_Middle h2 {
+    font-size: 20px;
+  }
 
-    /* WeatherSidebar Middle Section */
-    .weatherSidebar_Middle h2 {
-        font-size: 20px;
-    }
+  .weatherSidebar_MiddleOption h5 {
+    font-size: 14px;
+  }
 
-    .weatherSidebar_MiddleOption h5 {
-        font-size: 14px;
-    }
+  .weatherSidebar_MiddleOption p {
+    font-size: 12px;
+  }
 
-    .weatherSidebar_MiddleOption p {
-        font-size: 12px;
-    }
+  /* WeatherSidebar Bottom Section */
+  .weatherSidebar_Bottom h2 {
+    font-size: 20px;
+  }
 
-    /* WeatherSidebar Bottom Section */
-    .weatherSidebar_Bottom h2 {
-        font-size: 20px;
-    }
+  .weatherSidebar_BottomOptions button {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
 
-    .weatherSidebar_BottomOptions button {
-        font-size: 12px;
-        margin-bottom: 6px;
-    }
+  /** WeatherMain Section */
+  .weatherMain {
+    margin: 15px 0;
+  }
 
-    /** WeatherMain Section */
-    .weatherMain {
-        margin: 15px 0;
-    }
+  /* WeatherMain Top Section */
+  .weatherMain_Top {
+    padding: 10px 30px 0;
+  }
 
-    /* WeatherMain Top Section */
-    .weatherMain_Top {
-        padding: 10px 30px 0;
-    }
+  .weatherMain_TopLeft img {
+    width: 95px;
+  }
 
-    .weatherMain_TopLeft img {
-        width: 95px;
-    }
+  .weatherMain_TopLeft p {
+    font-size: 16px;
+    margin-top: 5px;
+  }
 
-    .weatherMain_TopLeft p {
-        font-size: 16px;
-        margin-top: 5px;
-    }
+  .weatherMain_TopRight {
+    font-size: 28px;
+  }
 
-    .weatherMain_TopRight p {
-        font-size: 28px;
-    }
-
-    /* WeatherMain Middle Section */
-    .weatherMain_Middle p {
-        font-size: 28px;
-    }
+  /* WeatherMain Middle Section */
+  .weatherMain_Middle p {
+    font-size: 28px;
+  }
 }
 
 @media screen and (max-width: 680px) {
+  /** Container Wrapper */
+  .containerWrap {
+    flex-direction: column;
+  }
 
-    /** Container Wrapper */
-    .containerWrap {
-        flex-direction: column;
-    }
+  /** Weather Sidebar Section */
+  /* WeatherSidebar Top Section */
+  .weatherSidebar_Top .inputContainer {
+    margin: 6px 0px;
+  }
 
-    /** Weather Sidebar Section */
-    .weatherSidebar {
-        height: 185px;
-    }
+  /* WeatherSidebar Middle Section */
+  .weatherSidebar_Middle {
+    padding: 6px;
+    border-bottom: 0px;
+  }
 
-    /* WeatherSidebar Top Section */
-    .weatherSidebar_Top .inputContainer {
-        margin: 5px 0px 10px;
-    }
+  .weatherSidebar_Middle h2 {
+    text-align: center;
+    font-size: 20px;
+  }
 
-    /* WeatherSidebar Middle Section */
-    .weatherSidebar_Middle {
-        padding: 6px;
-        border-bottom: 0px;
-    }
+  .weatherSidebar_MiddleOption {
+    margin-bottom: 2px;
+  }
 
-    .weatherSidebar_Middle h2 {
-        text-align: center;
-        font-size: 20px;
-    }
+  .weatherSidebar_MiddleOption h5 {
+    font-size: 16px;
+  }
 
-    .weatherSidebar_MiddleOption {
-        margin-bottom: 2px;
-    }
+  .weatherSidebar_MiddleOption p {
+    font-size: 14px;
+  }
 
-    .weatherSidebar_MiddleOption h5 {
-        font-size: 16px;
-    }
+  .weatherSidebar_Bottom {
+    display: none;
+  }
 
-    .weatherSidebar_MiddleOption p {
-        font-size: 14px;
-    }
+  /** Weather Main Section */
+  .weatherMain {
+    width: 100%;
+    height: 100%;
+  }
 
-    .weatherSidebar_Bottom {
-        display: none;
-    }
-
-    /** Weather Main Section */
-    .weatherMain {
-        width: 100%;
-        height: 100%;
-    }
-
-    .weatherMain_TopLeft img {
-        width: 80px;
-    }
+  .weatherMain_TopLeft img {
+    width: 80px;
+  }
 }

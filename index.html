@@ -1,28 +1,24 @@
 <html lang="en">
-<script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js"
-    id="eppiocemhmnlbhjplcgkofciiegomcon"></script>
-<script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script>
-<script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./Images/icon.png" />
+    <link rel="icon" href="./Images/favicon.png" />
     <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
 
 <body>
-    <div class="containerWrap">
+    <main class="containerWrap">
         <!-- Weather App Sidebar -->
-        <div class="weatherSidebar">
+        <section class="weatherSidebar">
             <div class="weatherSidebar_Top">
                 <div class="inputContainer">
                     <input type="text" id="inputCity" spellcheck="false" placeholder="City name">
-                    <div id="searchBtn">
-                        <img src="./Icons/search.png" alt="searchIcon">
-                    </div>
+                    <button id="searchBtn">
+                        <img src="./Images/search.png" alt="searchIcon">
+                    </button>
                 </div>
                 <p id="errorMsg">Invalid City Name!</p>
             </div>
@@ -86,19 +82,17 @@
                     <button id="istBtn">Istanbul</button>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Weather App Main Body -->
-        <div class="weatherMain">
+        <section class="weatherMain">
             <div class="weatherMain_Top">
                 <div class="weatherMain_TopLeft">
-                    <img id="weatherIcon" src="./Icons/clouds.png">
+                    <img id="weatherIcon" src="./Images/clouds.png">
                     <p id="tempText">Cloudy</p>
                 </div>
 
-                <div class="weatherMain_TopRight">
-                    <p id="temperature">0°C</p>
-                </div>
+                <p class="weatherMain_TopRight" id="temperature">0°C</p>
             </div>
 
             <div class="weatherMain_Middle">
@@ -106,12 +100,10 @@
                 <p id="countryName">Country</p>
             </div>
 
-            <div class="weatherMain_Bottom">
-                <marquee behavior="scroll" direction="left">Welcome to Weather Hub here you will find latest
-                    weather details of cities all over the world.</marquee>
-            </div>
-        </div>
-    </div>
+            <marquee behavior="scroll" direction="left">Welcome to Weather Hub here you will find latest weather
+                details of cities all over the world.</marquee>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
